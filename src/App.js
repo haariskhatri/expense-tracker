@@ -2,6 +2,7 @@ import React from 'react';
 
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import ExpensesFilter from './components/ExpenseFilter/ExpenseFilter';
 
 const App = () => {
     const expenses = [
@@ -26,6 +27,9 @@ const App = () => {
         },
     ];
 
+    function onAddExpense() {
+        console.log("In App.js")
+    }
     // return React.createElement(
     //   'div',
     //   {},
@@ -35,7 +39,8 @@ const App = () => {
 
     return (
         <div>
-            <NewExpense />
+            <NewExpense onAddExpense={onAddExpense} />
+            <ExpensesFilter />
             <Expenses items={expenses} />
         </div>
     );

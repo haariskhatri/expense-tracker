@@ -3,7 +3,7 @@ import './NewExpense.css';
 import moment from 'moment/moment';
 
 
-const NewExpense = () => {
+const NewExpense = (props) => {
 
     const [title, settitle] = useState('');
     const [amount, setamount] = useState('');
@@ -29,12 +29,12 @@ const NewExpense = () => {
         const expenseData = {
             expenseTitle: title,
             expenseAmount: amount,
-            expenseDate: new Date(date)
+            expenseDate: new Date(date),
+            id: Math.random().toString()
         }
 
         console.log(expenseData);
-
-
+        props.onAddExpense();
     }
 
     return (
@@ -45,15 +45,15 @@ const NewExpense = () => {
                     <div className="new-expense__controls">
                         <div className="new-expense__control">
                             <label>Title</label>
-                            <input type='text' onChange={titlechangehandler}></input>
+                            <input type='text' value={title} onChange={titlechangehandler}></input>
                         </div>
                         <div className="new-expense__control">
                             <label>Amount</label>
-                            <input type='text' onChange={amountchangehandler}></input>
+                            <input type='text' value={amount} onChange={amountchangehandler}></input>
                         </div>
                         <div className="new-expense__control">
                             <label>Date</label>
-                            <input type='date' onChange={datechangehandler}></input>
+                            <input type='date' value={date} onChange={datechangehandler}></input>
                         </div>
                         <div className='new-expense__actions'>
                             <button type='submit'>Add Expense</button>
