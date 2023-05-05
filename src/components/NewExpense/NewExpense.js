@@ -27,14 +27,14 @@ const NewExpense = (props) => {
         event.preventDefault();
 
         const expenseData = {
-            expenseTitle: title,
-            expenseAmount: amount,
-            expenseDate: new Date(date),
+            title: title,
+            amount: amount,
+            date: new Date(date),
             id: Math.random().toString()
         }
 
-        console.log(expenseData);
-        props.onAddExpense();
+
+        props.onAddExpense(expenseData);
     }
 
     return (
