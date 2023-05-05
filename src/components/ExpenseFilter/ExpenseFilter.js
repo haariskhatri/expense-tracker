@@ -6,8 +6,9 @@ const ExpensesFilter = () => {
 
     const [getYear, setYear] = useState('');
 
-    const updateYear(event){
-        setYear(event.t)
+    function updateYear(event) {
+        setYear(event.target.value)
+        console.log(getYear);
     }
 
     return (
@@ -21,7 +22,7 @@ const ExpensesFilter = () => {
                     <option value='2019'>2019</option>
                 </select>
             </div>
-        </div>
+        </div >
     );
 };
 
